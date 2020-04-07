@@ -1,0 +1,102 @@
+{
+  "name": "nodejs-boilerplate",
+  "version": "1.0.0",
+  "description": "Node.js project structure using Express and Mongoose",
+  "scripts": {
+    "start": "node src/bin/www",
+    "dev": "NODE_ENV=development nodemon",
+    "pm2": "pm2 start --name nodejs-boilerplate src/bin/www",
+    "test": "mocha  src/test/index.js",
+    "coverage": "./node_modules/.bin/nyc npm run test",
+    "coveralls": "./node_modules/.bin/nyc --reporter=lcov mocha src/test/index.js && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "report": "./node_modules/.bin/nyc --reporter=html mocha src/test/index.js",
+    "prettier": "prettier --write --ignore-path .gitignore .",
+    "lint:fix": "eslint --ignore-path .gitignore . --fix",
+    "lint": "eslint --ignore-path .gitignore .",
+    "commit": "git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shradha001/nodejs-boilerplate.git"
+  },
+  "keywords": [
+    "mongodb",
+    "node.js",
+    "mocha",
+    "istanbul",
+    "boilerplate",
+    "express",
+    "mongoose",
+    "REST",
+    "api",
+    "structure"
+  ],
+  "author": "abinash mallik",
+  "license": "MIT",
+  "bugs": {
+    "url": "e"
+  },
+  "homepage": "e",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "bluebird": "^3.7.2",
+    "celebrate": "^10.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.0.0",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.6.13",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "password-validator": "^5.0.3",
+    "swagger-ui-express": "^4.0.7",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt": "^8.2.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "commitizen": "^4.0.3",
+    "coveralls": "^3.0.9",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-mocha": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
+    "mocha": "^6.2.0",
+    "nodemon": "^2.0.1",
+    "nyc": "^14.1.1",
+    "pm2": "^4.2.0",
+    "prettier": "1.19.1",
+    "supertest": "^4.0.2"
+  }
+}

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"airport_be.transactions"}],"uuid":"fa961e38fbcf49f7a5f205bca8134b27"}
